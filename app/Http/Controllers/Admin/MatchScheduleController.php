@@ -91,6 +91,10 @@ class MatchScheduleController extends Controller
             $match->score = $request->score;
         }
 
+        if ($request->has('show_link')) {
+            $match->show_link = $request->boolean('show_link');
+        }
+
         $match->save();
 
         return redirect()->route('schedule.index')->with('success', 'Информация о матче успешно обновлена.');

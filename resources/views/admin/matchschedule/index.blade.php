@@ -115,6 +115,7 @@
                         <option value="Окончен" {{ $post->status == 'Окончен' ? 'selected' : '' }}>Окончен</option>
                     </select>
                 </td>
+
                 <td>
                                     @if($post->team_1 == "Италия")
                                     <img style="width: 90px; position: relative;" src="{{ asset('frontend/assets/img/flag_italy.png') }}" alt="" class="participant_flag">
@@ -231,6 +232,9 @@
                     <div style="width: 100%"><a class="fa fa-play" href="{{$post->reference_view}}"></a></div>
                     @endif
                 </td>
+                    <td title="показывать ссылку на трансляцию">
+                        <input value="1" type="checkbox" name="show_link" id="" {{ $post->show_link ? 'checked' : '' }}>
+                    </td>
                 <td><button type="submit">Подтвердить</button></td>
               </tr>
             </tbody>

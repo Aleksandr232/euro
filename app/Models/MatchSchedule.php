@@ -18,6 +18,7 @@ class MatchSchedule extends Model
         'team_1',
         'team_2',
         'score',
-        'reference_view'
+        'reference_view',
+        'show_link'
     ];
 }

@@ -25,7 +25,7 @@ Route::get('/', [PageController::class, 'index'])->name('page.index');
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'loginForm'])->name('auth.loginForm');
     Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
-    Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
+    /* Route::get('/register', [AuthController::class, 'register'])->name('auth.register'); */
     Route::post('/register_create', [AuthController::class, 'register_create'])->name('auth.register_create');
     Route::get('/login/google', [AuthController::class, 'redirectToGoogle'])->name('login.google');
     Route::get('/google/callback', [AuthController::class, 'handleGoogleCallback']);

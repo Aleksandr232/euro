@@ -190,11 +190,22 @@
                                 </div>
                             </div>
                         </div>
-                        @if($post->reference_view == NULL)
-
-                        @else
-                            <a href="{{$post->reference_view}}" target="_blank" class="live_link">Смотреть</a>
+                        @if ($post->show_link == 0)
+                            {{-- Здесь ничего не выводится, если show_link равен 0 --}}
+                        @elseif ($post->show_link == 1)
+                            <a href="{{ $post->reference_view }}" target="_blank" class="live_link">Смотреть</a>
                         @endif
+
+                        @if ($post->show_link == 0)
+                            {{-- Здесь ничего не выводится, если show_link равен 0 --}}
+                        @elseif ($post->show_link == 1)
+                            @if ($post->status == 'Окончен')
+                                
+                            @else
+                                <a href="{{ $post->reference_view }}" target="_blank" class="live_link">Смотреть</a>
+                            @endif
+                        @endif
+
                     </li>
                 @endforeach
 
