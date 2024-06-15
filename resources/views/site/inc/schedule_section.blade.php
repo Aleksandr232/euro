@@ -1,6 +1,6 @@
 <section id="schedule_section" class="main_section">
     <div class="schedule_top_line">
-        @foreach($match_date->unique('date') as $post)
+        {{-- @foreach($match_date->unique('date') as $post)
             @php
                 $dateObj = \Carbon\Carbon::createFromFormat('Y-m-d', $post->date);
                 $today = \Carbon\Carbon::today();
@@ -10,12 +10,18 @@
                 }
             @endphp
         @endforeach
-        <h3 class="section_title">Расписание матчей&nbsp;<span class="schedule_date">{{ $displayDate ?? '' }}</span></h3>
+        <h3 class="section_title">Расписание матчей&nbsp;<span class="schedule_date">{{ $displayDate ?? '' }}</span></h3> --}}
+        {{-- показывает следущую дату --}}
+        @php
+            $today = \Carbon\Carbon::today();
+            $displayDate = $today->format('d.m');
+        @endphp
+        <h3 class="section_title">Расписание матчей&nbsp;<span class="schedule_date">{{ $displayDate }}</span></h3>
         <div class="schedule_swiper_container">
             <div class="schedule_swiper swiper">
 
               <div class="swiper-wrapper">
-                @foreach($match_date->unique('date') as $post)
+                {{-- @foreach($match_date->unique('date') as $post)
                     @php
                         $dateObj = \Carbon\Carbon::createFromFormat('Y-m-d', $post->date);
                         $today = \Carbon\Carbon::today();
@@ -24,6 +30,15 @@
                     @endphp
                     <div class="swiper-slide">
                         <button class="slide_date_button {{ $dateObj->isSameDay($nextDay) ? 'active_slide_date_button' : '' }}" data-day="{{$post->date}}" data-date="{{$post->date}}">{{ date('d.m', strtotime($post->date)) }}</button>
+                    </div>
+                @endforeach --}} {{-- показывает следущую дату --}}
+                @foreach($match_date->unique('date') as $post)
+                    @php
+                        $dateObj = \Carbon\Carbon::createFromFormat('Y-m-d', $post->date);
+                        $today = \Carbon\Carbon::today();
+                    @endphp
+                    <div class="swiper-slide">
+                        <button class="slide_date_button {{ $dateObj->isSameDay($today) ? 'active_slide_date_button' : '' }}" data-day="{{$post->date}}" data-date="{{$post->date}}">{{ date('d.m', strtotime($post->date)) }}</button>
                     </div>
                 @endforeach
 
@@ -36,25 +51,23 @@
     <div class="live_schedule_container">
         <div class="live_schedule_scrollzone">
             @php
+                $today = \Carbon\Carbon::today()->format('Y-m-d');
                 $match_date_grouped = $match_date->groupBy('date');
-                $today = \Carbon\Carbon::today();
-                $nextDay = $today->addDay();
             @endphp
-
 
 
         @foreach($match_date_grouped as $date => $matches)
         @php
             $dateObj = \Carbon\Carbon::createFromFormat('Y-m-d', $date);
         @endphp
-            <ul class="live_schedule live_schedule_day_{{ $dateObj->format('Y-m-d') }} {{ $dateObj->isSameDay($nextDay) ? 'active_live_schedule' : '' }}">
+            <ul class="live_schedule live_schedule_day_{{ $dateObj->format('Y-m-d') }} {{ $dateObj->format('Y-m-d') == $today ? 'active_live_schedule' : '' }}">
                 @foreach($matches->take(4) as $post)
                     <li class="live_schedule_item">
                         <div class="live_schedule_info">
                             <p class="live_schedule_time">{{ $post->time }}</p>
                             @if($post->status == 'Начался')
                                 <p class="live_schedule_state live_on">Сейчас в эфире</p>
-                                <p class="live_schedule_state">{{ $post->status }}</p>
+                                {{-- <p class="live_schedule_state">{{ $post->status }}</p> --}}
                             @elseif($post->status == 'Окончен')
                                 <p class="live_schedule_state">{{ $post->status }}</p>
                             @elseif($post->status == 'Не начался')

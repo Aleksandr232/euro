@@ -103,6 +103,7 @@ class AuthController extends Controller
 
         }
 
+        
 
 
         session()->flash('success', 'Добро пожаловать, ' . Auth::user() ->  name . '!');
@@ -125,11 +126,14 @@ class AuthController extends Controller
 
             session()->flash('success', 'Добро пожаловать, ' . Auth::user() ->  name . '!');
 
-            /* $access_token = Auth::user()->createToken('authToken')->accessToken; */
-            return redirect()->route('admin.dashboard');
+
+            if(Auth::user()->is_admin) {
+                return redirect()->route('admin.dashboard');
+            } else {
+                return redirect()->route('page.index');
+            }
+
         }
-
-
 
 
         return redirect()->back()->with('error', 'Некорректный логин или пароль');

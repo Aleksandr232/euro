@@ -49,17 +49,12 @@ class MatchScheduleController extends Controller
         $matchSchedule->team_1 = $validatedData['team_1'];
         $matchSchedule->team_2 = $validatedData['team_2'];
         $matchSchedule->score = $validatedData['score'];
-        /* if ($request->has('reference_view')) {
-            $matchSchedule->reference_view = $request->reference_view;
-        } else {
-            $matchSchedule->reference_view = null;
-        } */
         $matchSchedule->reference_view = $request->reference_view;
 
 
         $matchSchedule->save();
 
-        
+
         return redirect()->route('schedule.index')->with('success', 'Матч добавлен');
     }
 
