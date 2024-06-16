@@ -81,21 +81,17 @@ class AuthController extends Controller
     {
         $user = Socialite::driver('google')->stateless()->user();
 
-        // Здесь вы можете выполнить дополнительные операции или проверки с полученными данными пользователя
 
-        // Проверяем, есть ли пользователь с таким google_id в базе данных
         $existingUser = User::where('google_id', $user->id)->first();
 
         if ($existingUser) {
-            // Если пользователь уже существует, то выполняем авторизацию
             Auth::login($existingUser);
         } else {
-            // Если пользователь не существует, создаем нового пользователя в базе данных
             $newUser = User::create([
                 'google_id' => $user->id,
                 'name' => $user->name,
                 'email' => $user->email,
-                'password' => bcrypt('random_password'), // Не используется при авторизации через Google
+                'password' => bcrypt('random_password'),
             ]);
 
             // Авторизуем пользователя
@@ -103,10 +99,7 @@ class AuthController extends Controller
 
         }
 
-        
-
-
-        session()->flash('success', 'Добро пожаловать, ' . Auth::user() ->  name . '!');
+        /* session()->flash('success', 'Добро пожаловать, ' . Auth::user() ->  name . '!'); */
 
         return redirect()->route('admin.dashboard');
     }
@@ -124,7 +117,7 @@ class AuthController extends Controller
 
         ])) {
 
-            session()->flash('success', 'Добро пожаловать, ' . Auth::user() ->  name . '!');
+            /* session()->flash('success', 'Добро пожаловать, ' . Auth::user() ->  name . '!'); */
 
 
             if(Auth::user()->is_admin) {

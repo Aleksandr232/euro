@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\MatchScheduleController;
 use App\Http\Controllers\Admin\GroupStageController;
+use App\Http\Controllers\Admin\PlayOffController;
 use App\Http\Controllers\PageController;
 
 /*
@@ -38,8 +39,11 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/',  [AdminController::class, 'index'])->name('admin.dashboard');
     Route::resource('/schedule', MatchScheduleController::class);
     Route::resource('/group', GroupStageController::class);
+    Route::resource('/playoff', PlayOffController::class);
     Route::post('/schedule/{id}',  [MatchScheduleController::class, 'update'])->name('update');
     Route::post('/group/{id}',  [GroupStageController::class, 'update_group'])->name('update_group');
+    Route::post('/playoff/{id}',  [PlayOffController::class, 'update_playoff'])->name('update_playoff');
+    Route::get('/delete', [PlayOffController::class, 'deleteAll'])->name('deleteAll');
 });
 
 

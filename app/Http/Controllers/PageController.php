@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\MatchSchedule;
 use App\Models\GroupStage;
+use App\Models\PlayOff;
 
 class PageController extends Controller
 {
@@ -52,6 +53,8 @@ class PageController extends Controller
                         ->take(24)
                         ->get();
 
-        return view('site.page.index', compact('matches', 'match_date', 'group', 'groups_team'));
+        $playOff = PlayOff::all();
+
+        return view('site.page.index', compact('matches', 'match_date', 'group', 'groups_team', 'playOff'));
     }
 }
