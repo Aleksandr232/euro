@@ -50,6 +50,7 @@ class PageController extends Controller
 
 
         $groups_team = GroupStage::whereIn('group', ['A', 'B', 'C', 'D', 'E', 'F'])
+                        ->orderByDesc('point')
                         ->take(24)
                         ->get();
 
