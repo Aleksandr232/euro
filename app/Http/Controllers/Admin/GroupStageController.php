@@ -18,13 +18,7 @@ class GroupStageController extends Controller
         return view('admin.group.index', compact('group'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -55,21 +49,6 @@ class GroupStageController extends Controller
     return redirect()->route('group.index')->with('success', 'Команда добавлена в группу');
 }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(GroupStage $groupStage)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(GroupStage $groupStage)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -105,11 +84,4 @@ class GroupStageController extends Controller
         return redirect()->route('group.index')->with('success', 'Информация о команде обновлена.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(GroupStage $groupStage)
-    {
-        //
-    }
 }

@@ -45,9 +45,9 @@
 
 
 @if (session()->has('success'))
-    {{-- <div class="alert alert-success" id="success-alert">
+    <div class="alert alert-success" id="success-alert">
         {{ session('success') }}
-    </div> --}}
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -58,7 +58,7 @@
             if (successAlert) {
                 setTimeout(function() {
                     successAlert.remove();
-                }, 2000);
+                }, 1000);
             }
         });
     </script>

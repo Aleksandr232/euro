@@ -25,7 +25,7 @@
         </a>
     </div>
     <div class="col-md-3">
-        <a href="" class="text-decoration-none">
+        <a href="{{ route('playoff.index') }}" class="text-decoration-none">
             <div class="card shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title mb-3">Плей-офф</h5>

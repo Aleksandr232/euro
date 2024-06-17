@@ -18,13 +18,6 @@ class MatchScheduleController extends Controller
         return view('admin.matchschedule.index', compact('matchs'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -58,21 +51,7 @@ class MatchScheduleController extends Controller
         return redirect()->route('schedule.index')->with('success', 'Матч добавлен');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(MatchShedule $matchShedule)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(MatchShedule $matchShedule)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -100,11 +79,5 @@ class MatchScheduleController extends Controller
         return redirect()->route('schedule.index')->with('success', 'Информация о матче успешно обновлена.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(MatchShedule $matchShedule)
-    {
-        //
-    }
+    
 }
