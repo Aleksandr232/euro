@@ -12,28 +12,14 @@ class PageController extends Controller
 {
     public function index(Request $request)
     {
-        /* $matches = MatchSchedule::whereDate('date', today())
-            ->take(4)
-            ->get(); */
-
-            $todayMatches = MatchSchedule::whereDate('date', today())
-                ->take(4)
-                ->get();
-
-            $nextMatch = MatchSchedule::whereDate('date', '>', today())
+        $matches = MatchSchedule::whereDate('date', '>=', today())
                         ->orderBy('date', 'asc')
-                        ->first();
+                        ->orderBy('time', 'asc')
+                        ->take(4)
+                        ->get();
 
-            $matches = collect();
 
-            if ($todayMatches->count() == 4) {
-                $matches = $todayMatches;
-            } else {
-                $matches = $todayMatches;
-                if ($nextMatch) {
-                    $matches = $matches->merge(collect([$nextMatch]));
-                }
-            }
+
 
         $match_date = MatchSchedule::all();
 
