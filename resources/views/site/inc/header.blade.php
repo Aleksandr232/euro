@@ -1,5 +1,5 @@
 <header class="index_header">
-    <a href="#" class="header_logo_link" target="_blank">
+    <a href="https://premier.one/" class="header_logo_link" target="_blank">
         <img src=" {{ asset('frontend/assets/img/icon_logo.svg') }}" alt="" class="header_logo">
     </a>
     <nav class="header_links_container">
