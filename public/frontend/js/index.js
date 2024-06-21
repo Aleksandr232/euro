@@ -17,15 +17,31 @@ function start() {
       },
     });
 
-    const desiredDateIndex = 4; // Установите значение desiredDateIndex
-    scheduleSwiper.slideToLoop(desiredDateIndex, 0, true)
-    scheduleSwiper.on('activeIndexChange', function (event) {
-      // const currentSLide = scheduleSwiper.slides[scheduleSwiper.activeIndex];
-      // const button = currentSLide.querySelector('.slide_date_button');
-      // const day = button.dataset.day;
+    // Получаем текущую дату
+const currentDate = new Date();
 
-      // showCurrentDay(day);
-    });
+// Находим индекс текущей даты в массиве дат
+const desiredDateIndex = scheduleSwiper.slides.findIndex((slide) => {
+  const button = slide.querySelector('.slide_date_button');
+  const slideDate = new Date(button.dataset.day);
+  return (
+    slideDate.getFullYear() === currentDate.getFullYear() &&
+    slideDate.getMonth() === currentDate.getMonth() &&
+    slideDate.getDate() === currentDate.getDate()
+  );
+});
+
+// Переходим к слайду с текущей датой
+scheduleSwiper.slideToLoop(desiredDateIndex, 0, true);
+
+// Обновляем отображение текущего дня
+scheduleSwiper.on('activeIndexChange', function (event) {
+  const currentSlide = scheduleSwiper.slides[scheduleSwiper.activeIndex];
+  const button = currentSlide.querySelector('.slide_date_button');
+  const day = button.dataset.day;
+  const date = button.dataset.date;
+  showCurrentDay(day, date);
+});
 
     const todayMatchItems = document.querySelectorAll('.today_match_item');
     todayMatchItems.forEach((item) => {
