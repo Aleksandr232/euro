@@ -1,5 +1,5 @@
-<IfModule modrewrite.c>
-    <IfModule modnegotiation.c>
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
 
@@ -7,7 +7,7 @@
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
-    RewriteRule . - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
@@ -18,9 +18,4 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
-
-    # Redirect premier-euro2024.ru to euro2024.premier.one
-    RewriteEngine On
-    RewriteCond %{HTTP_HOST} premier-euro2024.ru
-    RewriteRule (.) https://euro2024.premier.one/$1 R=301,L
 </IfModule>
