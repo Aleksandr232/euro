@@ -17,7 +17,7 @@ function start() {
       },
     });
 
-    const desiredDateIndex = 9; // Установите значение desiredDateIndex
+    const desiredDateIndex = 4; // Установите значение desiredDateIndex
     scheduleSwiper.slideToLoop(desiredDateIndex, 0, true)
     scheduleSwiper.on('activeIndexChange', function (event) {
       // const currentSLide = scheduleSwiper.slides[scheduleSwiper.activeIndex];
