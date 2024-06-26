@@ -155,7 +155,32 @@
                         @elseif($post->team_1 == "Словакия")
                             <img style="width: 90px; position: relative;" src="{{ asset('frontend/assets/img/flag_slovakia.png') }}" alt="" class="participant_flag">
                         @elseif($post->team_1 == "Н/Д")
-
+                            <select name="team_1">
+                                <option value="Германия">Германия</option>
+                                <option value="Шотландия">Шотландия</option>
+                                <option value="Венгрия">Венгрия</option>
+                                <option value="Швейцария">Швейцария</option>
+                                <option value="Испания">Испания</option>
+                                <option value="Хорватия">Хорватия</option>
+                                <option value="Италия">Италия</option>
+                                <option value="Албания">Албания</option>
+                                <option value="Словения">Словения</option>
+                                <option value="Дания">Дания</option>
+                                <option value="Сербия">Сербия</option>
+                                <option value="Англия">Англия</option>
+                                <option value="Польша">Польша</option>
+                                <option value="Нидерланды">Нидерланды</option>
+                                <option value="Австрия">Австрия</option>
+                                <option value="Франция">Франция</option>
+                                <option value="Бельгия">Бельгия</option>
+                                <option value="Словакия">Словакия</option>
+                                <option value="Румыния">Румыния</option>
+                                <option value="Украина">Украина</option>
+                                <option value="Турция">Турция</option>
+                                <option value="Грузия">Грузия</option>
+                                <option value="Португалия">Португалия</option>
+                                <option value="Чехия">Чехия</option>
+                        </select>
                         @endif
                     </td>
                     <td >
@@ -210,7 +235,32 @@
                     @elseif($post->team_2 == "Словакия")
                         <img style="width: 90px; position: relative;" src="{{ asset('frontend/assets/img/flag_slovakia.png') }}" alt="" class="participant_flag">
                     @elseif($post->team_2 == "Н/Д")
-
+                        <select name="team_2">
+                            <option value="Германия">Германия</option>
+                            <option value="Шотландия">Шотландия</option>
+                            <option value="Венгрия">Венгрия</option>
+                            <option value="Швейцария">Швейцария</option>
+                            <option value="Испания">Испания</option>
+                            <option value="Хорватия">Хорватия</option>
+                            <option value="Италия">Италия</option>
+                            <option value="Албания">Албания</option>
+                            <option value="Словения">Словения</option>
+                            <option value="Дания">Дания</option>
+                            <option value="Сербия">Сербия</option>
+                            <option value="Англия">Англия</option>
+                            <option value="Польша">Польша</option>
+                            <option value="Нидерланды">Нидерланды</option>
+                            <option value="Австрия">Австрия</option>
+                            <option value="Франция">Франция</option>
+                            <option value="Бельгия">Бельгия</option>
+                            <option value="Словакия">Словакия</option>
+                            <option value="Румыния">Румыния</option>
+                            <option value="Украина">Украина</option>
+                            <option value="Турция">Турция</option>
+                            <option value="Грузия">Грузия</option>
+                            <option value="Португалия">Португалия</option>
+                            <option value="Чехия">Чехия</option>
+                    </select>
                     @endif
                     </td>
                     <td>
