@@ -37,7 +37,7 @@ scheduleSwiper.slideToLoop(desiredDateIndex, 0, true);
 // Обновляем отображение текущего дня
 scheduleSwiper.on('activeIndexChange', function (event) {
   const currentSlide = scheduleSwiper.slides[scheduleSwiper.activeIndex];
-  /* const button = currentSlide.querySelector('.slide_date_button'); */
+  const button = currentSlide.querySelector('.slide_date_button');
   const day = button.dataset.day;
   const date = button.dataset.date;
   showCurrentDay(day, date);
