@@ -53,6 +53,7 @@
                     <option value="Грузия">Грузия</option>
                     <option value="Португалия">Португалия</option>
                     <option value="Чехия">Чехия</option>
+                    <option value="Н/Д">Н/Д</option>
               </select>
             </td>
               <td>
@@ -81,6 +82,7 @@
                     <option value="Грузия">Грузия</option>
                     <option value="Португалия">Португалия</option>
                     <option value="Чехия">Чехия</option>
+                    <option value="Н/Д">Н/Д</option>
               </select>
               </td>
               <td>
