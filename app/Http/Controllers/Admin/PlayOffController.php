@@ -59,6 +59,14 @@ class PlayOffController extends Controller
             $playOff->score = $request->score;
         }
 
+        if ($request->has('team_1')) {
+            $playOff->team_1 = $request->team_1;
+        }
+
+        if ($request->has('team_2')) {
+            $playOff->team_2 = $request->team_2;
+        }
+
         $playOff->save();
 
         return redirect()->route('playoff.index')->with('success', 'Информация о этапе обновлена');
