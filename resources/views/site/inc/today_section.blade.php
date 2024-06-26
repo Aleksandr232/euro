@@ -30,7 +30,7 @@
                         @elseif($post->team_1 == "Швейцария")
                             <img src="{{ asset('frontend/assets/img/flag_switzerland.png') }}" alt="" class="participant_flag">
                         @elseif($post->team_1 == "Чехия")
-                            <img src="{{ asset('frontend/assets/img/flag_czech_republic.png') }}" alt="" class="participant_flag">
+                            <img src="{{ asset('frontend/assets/img/flag_czech.png') }}" alt="" class="participant_flag">
                         @elseif($post->team_1 == "Дания")
                             <img src="{{ asset('frontend/assets/img/flag_denmark.png') }}" alt="" class="participant_flag">
                         @elseif($post->team_1 == "Швеция")
