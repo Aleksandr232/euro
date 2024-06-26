@@ -154,6 +154,8 @@
                             <img style="width: 90px; position: relative;" src="{{ asset('frontend/assets/img/flag_slovenia.png') }}" alt="" class="participant_flag">
                         @elseif($post->team_1 == "Словакия")
                             <img style="width: 90px; position: relative;" src="{{ asset('frontend/assets/img/flag_slovakia.png') }}" alt="" class="participant_flag">
+                        @elseif($post->team_1 == "Н/Д")
+
                         @endif
                     </td>
                     <td >
@@ -207,6 +209,8 @@
                         <img style="width: 90px; position: relative;" src="{{ asset('frontend/assets/img/flag_slovenia.png') }}" alt="" class="participant_flag">
                     @elseif($post->team_2 == "Словакия")
                         <img style="width: 90px; position: relative;" src="{{ asset('frontend/assets/img/flag_slovakia.png') }}" alt="" class="participant_flag">
+                    @elseif($post->team_2 == "Н/Д")
+
                     @endif
                     </td>
                     <td>
