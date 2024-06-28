@@ -116,57 +116,29 @@ scheduleSwiper.on('activeIndexChange', function (event) {
 
 
 
-  /* function switchScreen(screenNumber) {
-    const switchButtons = document.querySelectorAll('.switch_button');
-
-    switchButtons.forEach((item, index) => {
-      if (index == screenNumber) {
-        item.classList.add('active_switch_button');
-      } else {
-        item.classList.remove('active_switch_button');
-      }
-    });
-
-    const switchScreens = document.querySelectorAll('.switch_screen');
-
-    switchScreens.forEach((item, index) => {
-      if (index == screenNumber) {
-        item.classList.add('active_switch_screen');
-      } else {
-        item.classList.remove('active_switch_screen');
-      }
-    });
-  } */
-
   function switchScreen(screenNumber) {
     const switchButtons = document.querySelectorAll('.switch_button');
-    const switchScreens = document.querySelectorAll('.switch_screen');
 
     switchButtons.forEach((item, index) => {
-      if (index === screenNumber) {
+      if (index == screenNumber) {
         item.classList.add('active_switch_button');
-        item.setAttribute('data-num', screenNumber);
       } else {
         item.classList.remove('active_switch_button');
-        item.setAttribute('data-num', index);
       }
     });
 
+    const switchScreens = document.querySelectorAll('.switch_screen');
+
     switchScreens.forEach((item, index) => {
-      if (index === screenNumber) {
+      if (index == screenNumber) {
         item.classList.add('active_switch_screen');
-        item.setAttribute('data-num', screenNumber);
       } else {
         item.classList.remove('active_switch_screen');
-        item.setAttribute('data-num', index);
       }
     });
   }
 
-  // Вызываем функцию, когда страница полностью загрузилась
-  document.addEventListener('DOMContentLoaded', () => {
-    switchScreen(1);
-  });
+
 
 
 
