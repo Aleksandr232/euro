@@ -1,4 +1,4 @@
-<div class="switch_screen playoff_screen active_switch_screen">
+<div class="switch_screen playoff_screen">
     <div class="playoff_buttons_container">
         <button class="playoff_button" data-stage="1">1/8</button>
         <button class="playoff_button" data-stage="2">1/4</button>
