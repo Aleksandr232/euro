@@ -1,8 +1,8 @@
 <section id="statistics_section" class="main_section">
     <div class="statistics_wrapper">
         <div class="switch_buttons_container">
-            <button class="switch_button group_button" data-num="0">Групповой этап</button>
-            <button class="switch_button switch_playoff_button" data-num="1">Плей-офф</button>
+            <button class="switch_button group_button" data-num="1">Групповой этап</button>
+            <button class="switch_button switch_playoff_button" data-num="0">Плей-офф</button>
         </div>
 
     <div class="switch_screens_container">
