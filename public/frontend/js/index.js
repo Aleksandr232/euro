@@ -138,6 +138,9 @@ scheduleSwiper.on('activeIndexChange', function (event) {
     });
   } */
 
+// Получаем ссылки на элементы
+const switchButtons = document.querySelectorAll('.switch_button');
+const switchScreens = document.querySelectorAll('.switch_screen');
 
 // Устанавливаем начальное состояние
 let currentScreen = 1; // Плей-офф
@@ -170,6 +173,7 @@ function switchScreen(screenNumber) {
 switchButtons.forEach((btn, index) => {
   btn.addEventListener('click', () => switchScreen(index));
 });
+
 
   function scrollToElem(event, selector) {
     stopper(event);
