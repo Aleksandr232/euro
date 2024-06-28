@@ -160,8 +160,11 @@ scheduleSwiper.on('activeIndexChange', function (event) {
     });
   }
 
-  // Сразу после объявления функции switchScreen
-  switchScreen(1);
+  // Вызываем функцию, когда страница полностью загрузилась
+  document.addEventListener('DOMContentLoaded', () => {
+    switchScreen(1);
+  });
+
 
 
 
