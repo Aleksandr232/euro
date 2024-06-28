@@ -48,7 +48,7 @@
         @endphp
 
         @if($stage == '1/8')
-            <div class="playoff_map_item playoff_map_item_{{ $loop->index + 1 }} {{ $winner == 'left' ? 'win_left' : ($winner == 'right' ? 'win_right' : '') }}" data-stage="0">
+            <div class="playoff_map_item playoff_map_item_{{ $loop->index + 1 }} {{ $winner == 'left' ? 'win_left' : ($winner == 'right' ? 'win_right' : '') }}" data-stage="1">
                 <div class="playoff_participant">
                     <div class="participant_flag_container">
                         @if($post->team_1 == "Италия")
