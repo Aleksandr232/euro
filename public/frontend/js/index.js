@@ -116,7 +116,7 @@ scheduleSwiper.on('activeIndexChange', function (event) {
 
 
 
- /*  function switchScreen(screenNumber) {
+  /* function switchScreen(screenNumber) {
     const switchButtons = document.querySelectorAll('.switch_button');
 
     switchButtons.forEach((item, index) => {
@@ -138,41 +138,32 @@ scheduleSwiper.on('activeIndexChange', function (event) {
     });
   } */
 
-// Получаем ссылки на элементы
-const switchButtons = document.querySelectorAll('.switch_button');
-const switchScreens = document.querySelectorAll('.switch_screen');
+  function switchScreen(screenNumber) {
+    const switchButtons = document.querySelectorAll('.switch_button');
 
-// Устанавливаем начальное состояние
-let currentScreen = 1; // Плей-офф
-switchScreen(currentScreen);
+    switchButtons.forEach((item, index) => {
+      if (index == screenNumber) {
+        item.classList.add('active_switch_button');
+      } else {
+        item.classList.remove('active_switch_button');
+      }
+    });
 
-// Функция для переключения экранов
-function switchScreen(screenNumber) {
-  const switchButtons = document.querySelectorAll('.switch_button');
+    const switchScreens = document.querySelectorAll('.switch_screen');
 
-  switchButtons.forEach((item, index) => {
-    if (index == screenNumber) {
-      item.classList.add('active_switch_button');
-    } else {
-      item.classList.remove('active_switch_button');
-    }
-  });
+    switchScreens.forEach((item, index) => {
+      if (index == screenNumber) {
+        item.classList.add('active_switch_screen');
+      } else {
+        item.classList.remove('active_switch_screen');
+      }
+    });
+  }
 
-  const switchScreens = document.querySelectorAll('.switch_screen');
+  // Сразу после объявления функции switchScreen
+  switchScreen(1);
 
-  switchScreens.forEach((item, index) => {
-    if (index == screenNumber) {
-      item.classList.add('active_switch_screen');
-    } else {
-      item.classList.remove('active_switch_screen');
-    }
-  });
-}
 
-// Добавляем обработчики событий на кнопки
-switchButtons.forEach((btn, index) => {
-  btn.addEventListener('click', () => switchScreen(index));
-});
 
 
   function scrollToElem(event, selector) {
