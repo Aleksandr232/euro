@@ -117,7 +117,7 @@ scheduleSwiper.on('activeIndexChange', function (event) {
 
 
 
-  /* function switchScreen(screenNumber) {
+ /*  function switchScreen(screenNumber) {
     const switchButtons = document.querySelectorAll('.switch_button');
 
     switchButtons.forEach((item, index) => {
@@ -137,43 +137,32 @@ scheduleSwiper.on('activeIndexChange', function (event) {
         item.classList.remove('active_switch_screen');
       }
     });
-  }
- */
+  } */
+
   function switchScreen(screenNumber) {
     const switchButtons = document.querySelectorAll('.switch_button');
     const switchScreens = document.querySelectorAll('.switch_screen');
 
-    // Сначала сделаем активной кнопку и страницу с атрибутом data-num="1"
-    if (screenNumber === undefined) {
-      screenNumber = 1; // Устанавливаем начальное значение screenNumber в 0
-      switchButtons.forEach((item, index) => {
-        if (item.getAttribute('data-num') === '1') {
-          item.classList.add('active_switch_button');
-          switchScreens[index].classList.add('active_switch_screen');
-        } else {
-          item.classList.remove('active_switch_button');
-          switchScreens[index].classList.remove('active_switch_screen');
-        }
-      });
-    } else {
-      // Затем переключаем кнопки и страницы в соответствии с переданным screenNumber
-      switchButtons.forEach((item, index) => {
-        if (index == screenNumber) {
-          item.classList.add('active_switch_button');
-        } else {
-          item.classList.remove('active_switch_button');
-        }
-      });
+    switchButtons.forEach((item, index) => {
+      if (index == screenNumber) {
+        item.classList.add('active_switch_button');
+      } else {
+        item.classList.remove('active_switch_button');
+      }
+    });
 
-      switchScreens.forEach((item, index) => {
-        if (index == screenNumber) {
-          item.classList.add('active_switch_screen');
-        } else {
-          item.classList.remove('active_switch_screen');
-        }
-      });
-    }
+    switchScreens.forEach((item, index) => {
+      if (index == screenNumber) {
+        item.classList.add('active_switch_screen');
+      } else {
+        item.classList.remove('active_switch_screen');
+      }
+    });
   }
+
+  // Вызываем функцию switchScreen с аргументом 0, чтобы сделать первую кнопку и первый экран активными по умолчанию
+  switchScreen(0);
+
 
 
   function scrollToElem(event, selector) {
