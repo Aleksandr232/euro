@@ -138,7 +138,9 @@ scheduleSwiper.on('activeIndexChange', function (event) {
     });
   } */
 
-  function switchScreen(screenNumber) {
+
+
+   function switchScreen(screenNumber) {
     const switchButtons = document.querySelectorAll('.switch_button');
 
     switchButtons.forEach((item, index) => {
@@ -159,11 +161,9 @@ scheduleSwiper.on('activeIndexChange', function (event) {
       }
     });
 
-    // Добавляем следующую строку, чтобы изначально была активна кнопка switch_playoff_button
+    // Изначально делаем активной кнопку "Плей-офф"
     document.querySelector('.switch_playoff_button').classList.add('active_switch_button');
   }
-
-
 
 
 
