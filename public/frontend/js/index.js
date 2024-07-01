@@ -1,7 +1,7 @@
 function start() {
 
     setButtons();
-    switchScreen(0);
+    switchScreen(1);
     setGroupTitles();
     setPlayoffButtons();
 
