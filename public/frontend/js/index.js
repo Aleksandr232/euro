@@ -145,7 +145,7 @@ scheduleSwiper.on('activeIndexChange', function (event) {
 
     // Сначала сделаем активной кнопку и страницу с атрибутом data-num="1"
     if (screenNumber === undefined) {
-      screenNumber = 0; // Устанавливаем начальное значение screenNumber в 0
+      screenNumber = 1; // Устанавливаем начальное значение screenNumber в 0
       switchButtons.forEach((item, index) => {
         if (item.getAttribute('data-num') === '1') {
           item.classList.add('active_switch_button');
