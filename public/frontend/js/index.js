@@ -161,7 +161,7 @@ scheduleSwiper.on('activeIndexChange', function (event) {
   }
 
   // Вызываем функцию switchScreen с аргументом 0, чтобы сделать первую кнопку и первый экран активными по умолчанию
-  switchScreen(0);
+  switchScreen(1);
 
 
 
