@@ -64,7 +64,7 @@
     <footer>
         @include('site.inc.footer')
     </footer>
-    <script async  src="{{ asset('frontend/js/swiper-bundle.min.js') }}"></script>
-    <script async  src="{{ asset('frontend/js/index.js') }}"></script>
+    <script async  src="{{ asset('frontend/js/swiper-bundle.min.js') }}?v={{ time() }}"></script>
+    <script async  src="{{ asset('frontend/js/index.js') }}?v={{ time() }}"></script>
 </body>
 </html>
