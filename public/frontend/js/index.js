@@ -117,7 +117,7 @@ scheduleSwiper.on('activeIndexChange', function (event) {
 
 
 
- /*  function switchScreen(screenNumber) {
+  function switchScreen(screenNumber) {
     const switchButtons = document.querySelectorAll('.switch_button');
 
     switchButtons.forEach((item, index) => {
@@ -137,48 +137,7 @@ scheduleSwiper.on('activeIndexChange', function (event) {
         item.classList.remove('active_switch_screen');
       }
     });
-  } */
-
-  // Получаем все кнопки переключения экранов
-const switchButtons = document.querySelectorAll('.switch_button');
-
-// Получаем все экраны
-const switchScreens = document.querySelectorAll('.switch_screen');
-
-// Добавляем обработчик события клика на каждую кнопку
-switchButtons.forEach((button, index) => {
-  button.addEventListener('click', () => {
-    // Снимаем активный класс со всех кнопок
-    switchButtons.forEach(btn => btn.classList.remove('active_switch_button'));
-    // Добавляем активный класс на нажатую кнопку
-    button.classList.add('active_switch_button');
-
-    // Снимаем активный класс со всех экранов
-    switchScreens.forEach(screen => screen.classList.remove('active_switch_screen'));
-    // Добавляем активный класс на соответствующий экран
-    switchScreens[index].classList.add('active_switch_screen');
-  });
-});
-
-// Делаем первую кнопку и экран активными по умолчанию
-switchButtons[0].classList.add('active_switch_button');
-switchScreens[0].classList.add('active_switch_screen');
-
-// Добавляем data-num атрибут к каждому экрану
-switchScreens.forEach((screen, index) => {
-  screen.setAttribute('data-num', index + 1);
-});
-
-// Находим экран с data-num="1" и добавляем ему активный класс
-const activeScreen = document.querySelector('.switch_screen[data-num="1"]');
-activeScreen.classList.add('active_switch_screen');
-
-
-
-
-
-
-
+  }
 
 
   function scrollToElem(event, selector) {
