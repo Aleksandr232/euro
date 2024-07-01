@@ -140,7 +140,7 @@ scheduleSwiper.on('activeIndexChange', function (event) {
 
 
 
-   
+
 
 
 
@@ -160,8 +160,23 @@ scheduleSwiper.on('activeIndexChange', function (event) {
     }
   }
 
+  /* function setButtons() {
+    const switchButtons = document.querySelectorAll('.switch_button');
+
+    switchButtons.forEach((item) => {
+      item.addEventListener('click', () => {
+        const num = item.dataset.num;
+
+        switchScreen(num);
+      });
+    });
+  } */
+
   function setButtons() {
     const switchButtons = document.querySelectorAll('.switch_button');
+
+    // Устанавливаем data-num = 1 для первой кнопки
+    switchButtons[0].dataset.num = '1';
 
     switchButtons.forEach((item) => {
       item.addEventListener('click', () => {
