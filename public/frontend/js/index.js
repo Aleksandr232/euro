@@ -115,6 +115,9 @@ scheduleSwiper.on('activeIndexChange', function (event) {
   }
 
 
+  window.onload = function() {
+    switchScreen(1);
+  };
 
   function switchScreen(screenNumber) {
     const switchButtons = document.querySelectorAll('.switch_button');
@@ -137,6 +140,28 @@ scheduleSwiper.on('activeIndexChange', function (event) {
       }
     });
   }
+
+  /* function switchScreen(screenNumber) {
+    const switchButtons = document.querySelectorAll('.switch_button');
+
+    switchButtons.forEach((item, index) => {
+      if (index == screenNumber) {
+        item.classList.add('active_switch_button');
+      } else {
+        item.classList.remove('active_switch_button');
+      }
+    });
+
+    const switchScreens = document.querySelectorAll('.switch_screen');
+
+    switchScreens.forEach((item, index) => {
+      if (index == screenNumber) {
+        item.classList.add('active_switch_screen');
+      } else {
+        item.classList.remove('active_switch_screen');
+      }
+    });
+  } */
 
 
 
@@ -244,6 +269,6 @@ scheduleSwiper.on('activeIndexChange', function (event) {
     })
   }
 
-  
+
 
   window.addEventListener('load', start);
