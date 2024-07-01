@@ -116,7 +116,7 @@ scheduleSwiper.on('activeIndexChange', function (event) {
 
 
 
-  function switchScreen(screenNumber) {
+  /* function switchScreen(screenNumber) {
     const switchButtons = document.querySelectorAll('.switch_button');
 
     switchButtons.forEach((item, index) => {
@@ -136,7 +136,7 @@ scheduleSwiper.on('activeIndexChange', function (event) {
         item.classList.remove('active_switch_screen');
       }
     });
-  }
+  } */
 
 
 
