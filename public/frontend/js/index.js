@@ -216,7 +216,7 @@ scheduleSwiper.on('activeIndexChange', function (event) {
     });
   }
 
-  /* function setPlayoffButtons() {
+  function setPlayoffButtons() {
     const playoffButtons = document.querySelectorAll('.playoff_button');
 
     playoffButtons.forEach((button) => {
@@ -242,54 +242,8 @@ scheduleSwiper.on('activeIndexChange', function (event) {
         button.classList.add('active_playoff_button');
       });
     })
-  } */
-
-  function setPlayoffButtons() {
-    const playoffButtons = document.querySelectorAll('.playoff_button');
-
-    // Set the initial state to the first button
-    const firstButton = playoffButtons[0];
-    const stage = firstButton.dataset.stage;
-    const playoffMapItems = document.querySelectorAll('.playoff_map_item');
-
-    playoffMapItems.forEach((item) => {
-      const itemStage = item.dataset.stage;
-
-      if (stage == itemStage) {
-        item.classList.add('visible_playoff_map_item');
-      } else {
-        item.classList.remove('visible_playoff_map_item');
-      }
-    });
-
-    playoffButtons.forEach((innerButton) => {
-      innerButton.classList.remove('active_playoff_button');
-    });
-
-    firstButton.classList.add('active_playoff_button');
-
-    // Add the event listeners
-    playoffButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const stage = button.dataset.stage;
-
-        playoffMapItems.forEach((item) => {
-          const itemStage = item.dataset.stage;
-
-          if (stage == itemStage) {
-            item.classList.add('visible_playoff_map_item');
-          } else {
-            item.classList.remove('visible_playoff_map_item');
-          }
-        });
-
-        playoffButtons.forEach((innerButton) => {
-          innerButton.classList.remove('active_playoff_button');
-        });
-
-        button.classList.add('active_playoff_button');
-      });
-    });
   }
+
+  
 
   window.addEventListener('load', start);
