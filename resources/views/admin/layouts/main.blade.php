@@ -74,8 +74,8 @@
       content.classList.toggle('expanded');
     });
   </script>
-  <script>
-   /*  function formatScoreInput(input) {
+ {{--  <script>
+    function formatScoreInput(input) {
 
     let value = input.value;
 
@@ -83,30 +83,8 @@
 
       input.value = value + ':';
     }
-  } */
-  function formatScoreInput(input) {
-  let value = input.value;
-
-  // Удаляем все символы, кроме цифр и скобок
-  value = value.replace(/[^0-9\(\):]/, '');
-
-  // Проверяем, чтобы не было больше одной двоеточия
-  if (value.indexOf(':') !== value.lastIndexOf(':')) {
-    value = value.replace(':', '');
   }
-
-  // Добавляем двоеточие, если его нет
-  if (value.indexOf(':') === -1 && value.length === 1) {
-    value = value + ':';
-  }
-
-  // Ограничиваем длину строки до 7 символов (0(2):0(0))
-  value = value.slice(0, 7);
-
-  // Устанавливаем обновленное значение в поле ввода
-  input.value = value;
-}
-  </script>
+  </script> --}}
 
 </body>
 </html>
