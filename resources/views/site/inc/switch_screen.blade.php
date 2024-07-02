@@ -27,7 +27,7 @@
 
     @if(count($playOff ))
         @foreach($playOff as $post)
-        @php
+        {{-- @php
             $stage = $post->stage;
             $left_team = [
                 'name' => $post->team_1,
@@ -45,6 +45,41 @@
             } else {
                 $winner = 'draw';
             }
+        @endphp --}}
+        @php
+        $stage = $post->stage;
+        $left_team = [
+            'name' => $post->team_1,
+        ];
+        $right_team = [
+            'name' => $post->team_2,
+        ];
+
+        $scores = explode(':', $post->score);
+        $left_score = 0;
+        $right_score = 0;
+
+        if (strpos($scores[0], '(') !== false) {
+            $left_score_parts = explode('(', $scores[0]);
+            $left_score = (int) $left_score_parts[0] . '(' . (int) str_replace(')', '', $left_score_parts[1]) . ')';
+        } else {
+            $left_score = (int) $scores[0];
+        }
+
+        if (strpos($scores[1], '(') !== false) {
+            $right_score_parts = explode('(', $scores[1]);
+            $right_score = (int) $right_score_parts[0] . '(' . (int) str_replace(')', '', $right_score_parts[1]) . ')';
+        } else {
+            $right_score = (int) $scores[1];
+        }
+
+        if ($left_score > $right_score) {
+            $winner = 'left';
+        } elseif ($right_score > $left_score) {
+            $winner = 'right';
+        } else {
+            $winner = 'draw';
+        }
         @endphp
 
 
@@ -106,7 +141,7 @@
                     </div>
                     <p class="participant_name">{{ $left_team['name'] }}</p>
                 </div>
-                <p class="playoff_result"><span class="left_point">{{ $left_score }}</span><span class="dot"></span><span class="right_point">{{ $right_score }}</span></p>
+                <p class="playoff_result"><span class="left_point">{{$left_score}}</span><span class="dot"></span><span class="right_point">{{$right_score}}</span></p>
                 <div class="playoff_participant">
                     <p class="participant_name">{{ $right_team['name'] }}</p>
                     <div class="participant_flag_container">
