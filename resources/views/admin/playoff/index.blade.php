@@ -264,7 +264,7 @@
                     @endif
                     </td>
                     <td>
-                    <input value="{{$post->score}}" name="score" type="text" id="scoreInput" maxlength="5" pattern="\d+:\d+" title="Введите счет в формате 'число:число'" onkeyup="formatScoreInput(this)" />
+                    <input value="{{$post->score}}" name="score" type="text" id="scoreInput" maxlength="12" pattern="\d\(\d+\):\d\(\d+\)" title="Введите счет в формате 'число:число'" onkeyup="formatScoreInput(this)" />
                     </td>
                     <td><button type="submit">Подтвердить</button></td>
                 </tr>
