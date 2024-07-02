@@ -27,7 +27,7 @@
 
     @if(count($playOff ))
         @foreach($playOff as $post)
-        {{-- @php
+        @php
             $stage = $post->stage;
             $left_team = [
                 'name' => $post->team_1,
@@ -45,48 +45,8 @@
             } else {
                 $winner = 'draw';
             }
-        @endphp --}}
-        @php
-        $stage = $post->stage;
-        $left_team = [
-            'name' => $post->team_1,
-        ];
-        $right_team = [
-            'name' => $post->team_2,
-        ];
-
-        $scores = explode(':', $post->score);
-        $left_score = (int) $scores[0];
-        $right_score = (int) $scores[1];
-
-        // Проверяем, является ли игра серией пенальти
-        if (strpos($post->score, '(') !== false) {
-            // Разделяем счет на основной счет и счет пенальти
-            $penaltyScores = explode('(', $post->score);
-            $mainScore = explode(':', $penaltyScores[0]);
-            $penaltyScore = explode(')', $penaltyScores[1]);
-
-            $left_score = (int) $mainScore[0];
-            $right_score = (int) $mainScore[1];
-            $left_penalty = (int) $penaltyScore[0];
-            $right_penalty = (int) $penaltyScore[1];
-
-            // Формируем счет в нужном формате
-            $left_score_display = $left_score . '(' . $left_penalty . ')';
-            $right_score_display = $right_score . '(' . $right_penalty . ')';
-        } else {
-            $left_score_display = $left_score;
-            $right_score_display = $right_score;
-        }
-
-        if ($left_score > $right_score) {
-            $winner = 'left';
-        } elseif ($right_score > $left_score) {
-            $winner = 'right';
-        } else {
-            $winner = 'draw';
-        }
         @endphp
+        
 
         @if($stage == '1/8')
             <div class="playoff_map_item playoff_map_item_{{ $loop->index + 1 }} {{ $winner == 'left' ? 'win_left' : ($winner == 'right' ? 'win_right' : '') }}" data-stage="1">
