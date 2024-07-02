@@ -74,31 +74,37 @@
       content.classList.toggle('expanded');
     });
   </script>
+  {{-- <script>
+    function formatScoreInput(input) {
+
+    let value = input.value;
+
+    if (value.indexOf(':') === -1 && value.length === 1) {
+
+      input.value = value + ':';
+    }
+  }
+  </script> --}}
   <script>
     function formatScoreInput(input) {
       let value = input.value;
 
-      // Проверяем, что значение содержит только цифры, скобки и двоеточие
-      if (/^[0-9()\:]+$/.test(value)) {
-        // Разбиваем значение на части, разделенные двоеточием
-        let parts = value.split(':');
+      // Убираем все лишние символы, кроме цифр и скобок
+      value = value.replace(/[^0-9 \(\)]/g, '');
 
-        // Проверяем, что каждая часть имеет правильный формат
-        for (let i = 0; i < parts.length; i++) {
-          let part = parts[i];
-          if (!/^[0-9]+\([0-9]+\)$/.test(part)) {
-            // Если формат части неверный, очищаем значение
-            input.value = '';
-            return;
-          }
-        }
-
-        // Если все части имеют правильный формат, сохраняем значение
-        input.value = value;
-      } else {
-        // Если значение содержит недопустимые символы, очищаем его
-        input.value = '';
+      // Добавляем разделитель ":" если его нет
+      if (value.indexOf(':') === -1 && value.length > 0) {
+        value = value.slice(0, value.length - 1) + ':' + (value.slice(-1) || '');
       }
+
+      // Форматируем ввод
+      if (value.length === 1) {
+        value = value + ':';
+      } else if (value.length === 3 && value.indexOf('(') === -1) {
+        value = value.slice(0, 1) + ' (' + value.slice(1, 2) + '): ' + value.slice(2);
+      }
+
+      input.value = value;
     }
   </script>
 </body>
