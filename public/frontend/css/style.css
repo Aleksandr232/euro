@@ -319,6 +319,18 @@ body {
     list-style: none;
     margin-top: 2.4rem;
 }
+
+#today_mathes {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+    list-style: none;
+    margin-top: 2.4rem;
+    justify-content: space-around;
+}
+
 .today_match_item {
     display: flex;
     flex-direction: row;
@@ -1430,6 +1442,10 @@ body {
         font-size: 5.5rem;
     }
     .today_mathes {
+        display: block;
+        margin-top: 4rem;
+    }
+    #today_mathes {
         display: block;
         margin-top: 4rem;
     }

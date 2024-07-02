@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-store">
 	<title>@yield('title')</title>
     <meta name="description" content="@yield('description')">
-	<link rel="stylesheet" href="{{ asset('frontend/css/style.css')}}?v=1.5.1">
+	<link rel="stylesheet" href="{{ asset('frontend/css/style.css')}}?v={{ time() }}">
 	<link rel="stylesheet" href="{{ asset('frontend/css/swiper-bundle.min.css')}}">
 
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=1.1">
