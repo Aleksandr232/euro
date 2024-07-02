@@ -74,8 +74,8 @@
       content.classList.toggle('expanded');
     });
   </script>
-  {{-- <script>
-    function formatScoreInput(input) {
+  <script>
+   /*  function formatScoreInput(input) {
 
     let value = input.value;
 
@@ -83,29 +83,30 @@
 
       input.value = value + ':';
     }
+  } */
+  function formatScoreInput(input) {
+  let value = input.value;
+
+  // Удаляем все символы, кроме цифр и скобок
+  value = value.replace(/[^0-9\(\):]/, '');
+
+  // Проверяем, чтобы не было больше одной двоеточия
+  if (value.indexOf(':') !== value.lastIndexOf(':')) {
+    value = value.replace(':', '');
   }
-  </script> --}}
-  <script>
-    function formatScoreInput(input) {
-      let value = input.value;
 
-      // Убираем все лишние символы, кроме цифр и скобок
-      value = value.replace(/[^0-9 \(\)]/g, '');
+  // Добавляем двоеточие, если его нет
+  if (value.indexOf(':') === -1 && value.length === 1) {
+    value = value + ':';
+  }
 
-      // Добавляем разделитель ":" если его нет
-      if (value.indexOf(':') === -1 && value.length > 0) {
-        value = value.slice(0, value.length - 1) + ':' + (value.slice(-1) || '');
-      }
+  // Ограничиваем длину строки до 7 символов (0(2):0(0))
+  value = value.slice(0, 7);
 
-      // Форматируем ввод
-      if (value.length === 1) {
-        value = value + ':';
-      } else if (value.length === 3 && value.indexOf('(') === -1) {
-        value = value.slice(0, 1) + ' (' + value.slice(1, 2) + '): ' + value.slice(2);
-      }
-
-      input.value = value;
-    }
+  // Устанавливаем обновленное значение в поле ввода
+  input.value = value;
+}
   </script>
+
 </body>
 </html>
