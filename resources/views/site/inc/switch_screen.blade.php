@@ -27,7 +27,7 @@
 
     @if(count($playOff ))
         @foreach($playOff as $post)
-        {{-- @php
+        @php
             $stage = $post->stage;
             $left_team = [
                 'name' => $post->team_1,
@@ -46,30 +46,7 @@
                 $winner = 'draw';
             }
         @endphp
- --}}
-        @php
-        $stage = $post->stage;
-        $left_team = [
-            'name' => $post->team_1,
-        ];
-        $right_team = [
-            'name' => $post->team_2,
-        ];
-        $scores = explode(':', $post->score);
-        $left_score = (int) $scores[0];
-        $right_score = (int) $scores[1];
 
-        $left_score_formatted = $left_score . '(' . strlen($left_score) . ')';
-        $right_score_formatted = $right_score . '(' . strlen($right_score) . ')';
-
-        if ($left_score > $right_score) {
-            $winner = 'left';
-        } elseif ($right_score > $left_score) {
-            $winner = 'right';
-        } else {
-            $winner = 'draw';
-        }
-        @endphp
 
         @if($stage == '1/8')
             <div class="playoff_map_item playoff_map_item_{{ $loop->index + 1 }} {{ $winner == 'left' ? 'win_left' : ($winner == 'right' ? 'win_right' : '') }}" data-stage="1">
@@ -129,7 +106,7 @@
                     </div>
                     <p class="participant_name">{{ $left_team['name'] }}</p>
                 </div>
-                <p class="playoff_result"><span class="left_point">{{ $left_score_formatted }}</span><span class="dot"></span><span class="right_point">{{ $right_score_formatted }}</span></p>
+                <p class="playoff_result"><span class="left_point">{{ $left_score }}</span><span class="dot"></span><span class="right_point">{{ $right_score }}</span></p>
                 <div class="playoff_participant">
                     <p class="participant_name">{{ $right_team['name'] }}</p>
                     <div class="participant_flag_container">
