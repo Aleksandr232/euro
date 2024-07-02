@@ -76,14 +76,19 @@
   </script>
   <script>
     function formatScoreInput(input) {
+      let value = input.value;
 
-    let value = input.value;
-
-    if (value.indexOf(':') === -1 && value.length === 1) {
-
-      input.value = value + ':';
+      // Проверяем, что значение содержит только цифры и двоеточие
+      if (/^[0-9:]+$/.test(value)) {
+        // Если значение состоит только из одной цифры, добавляем двоеточие
+        if (value.indexOf(':') === -1 && value.length === 1) {
+          input.value = value + ':';
+        }
+      } else {
+        // Если значение содержит недопустимые символы, очищаем его
+        input.value = '';
+      }
     }
-  }
   </script>
 </body>
 </html>
