@@ -941,6 +941,10 @@ body {
     width: 20rem;
     flex-wrap: nowrap;
 }
+.playoff_penalty{
+    font-size: 10px;
+    
+}
 .playoff_participant_final:nth-of-type(3) {
     flex-direction: row-reverse;
     justify-content: flex-end;
